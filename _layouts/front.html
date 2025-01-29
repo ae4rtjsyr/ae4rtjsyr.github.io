@@ -1,0 +1,665 @@
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top">
+  
+<section class="bg-white">
+  <div class="container no-gutter no-padding">
+    <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Music2Music: Efficient Tokenization, Generative Pre-Training, and Unified Objectives for Multi-Track Music Arrangement</h2> 
+        <hr class="primary">
+        <h4 class="section-heading">IJCAI 2025 Submission xxxxx</h4> 
+        <h3></h3>
+    </div>
+    
+    <div class="col-sm-12 small-padding">
+        <p class='text-justify'>
+          <b>Abstract</b>: Automatic music arrangement streamlines the creation of musical variants for composer and arrangers, reducing reliance on extensive music expertise. However, existing methods suffer from inefficient tokenization, underutilization of pre-trained music language models (LMs) in data-scarce settings, and suboptimal fidelity and coherence in generated arrangements. This paper introduces a compact, efficient tokenizer for unconditional and conditional music generation, along with a unified seq2seq fine-tuning objective for pre-trained music LMs that balances task-specific needs with coherence constraints. Our approach achieves state-of-the-art results on band arrangement, piano reduction, and drum arrangement, surpassing task-specific models in both objective metrics and perceptual quality. Additionally, we demonstrate that generative pretraining significantly improves bar-to-bar transformations, especially for longer segments. This flexible, scalable framework lays the foundation for advancing music-to-music transformation tasks.
+        </p>
+    </div>
+  </div>
+
+
+  <div class="container no-gutter no-padding">  
+    <div class="col-lg-12 text-center"><p class="h1"><hr class="primary"></p></div>
+    <p class="h3">Band Arrangement</p>
+    <p class='text-justify'> Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models?
+    </p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th style="width: 12%;">Demo No.</th>
+            <th class="text-center" style="width: 17%;">Source Music</th>
+            <th class="text-center" style="width: 17%;">Ours</th>
+            <th class="text-center" style="width: 17%;">AccoMontage-3</th>
+            <th class="text-center" style="width: 17%;">No PT</th>
+            <th class="text-center" style="width: 17%;">Rule-based</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: middle;"><b>#1</b> <em>(Jazz Band)</em></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/fly_me__song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/fly_me_ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/fly_me_qnaxl.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/fly_me_no_pt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/fly_me_rule.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#2</b> <em>(Jazz Band)</em></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/rainbow__song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/rainbow_ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/rainbow_qnaxl.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/rainbow_no_pt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/jazz band/rainbow_rule.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#3</b> <em>(Rock Band)</em></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/butterfly__song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/butterfly_ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/butterfly_qnaxl.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/butterfly_no_pt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/butterfly_rule.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#4</b> <em>(Rock Band)</em></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/buweishei__song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/buweishei_ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/buweishei_qnaxl.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/buweishei_no_pt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/rock band/buweishei_rule.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#5</b> <em>(String Trio)</em></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/first_love__song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/first_love_ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/first_love_qnaxl.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/first_love_no_pt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/first_love_rule.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#6</b> <em>(String Trio)</em></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/rainbow__song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/rainbow_ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/rainbow_qnaxl.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/rainbow_no_pt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Band Arrangement/string trio/rainbow_rule.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <div class="container no-gutter small-padding"> </div>
+
+  <div class="container no-gutter no-padding">  
+    <div class="col-lg-12 text-center"><p class="h1"><hr class="primary"></p></div>
+    <p class="h3">Piano Reduction</p>
+    <p class='text-justify'> Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models?
+    </p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th style="width: 4%;">No.</th>
+            <th class="text-center" style="width: 16%;">Source Music</th>
+            <th class="text-center" style="width: 16%;">Ours</th>
+            <th class="text-center" style="width: 16%;">UNet</th>
+            <th class="text-center" style="width: 16%;">No PT</th>
+            <th class="text-center" style="width: 16%;">Rule-F</th>
+            <th class="text-center" style="width: 16%;">Rule-O</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: middle;"><b>#1</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1876--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1876-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1876-unet.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1876-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1876-rule-f.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1876-rule-o.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#2</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1877--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1877-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1877-unet.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1877-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1877-rule-f.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1877-rule-o.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#3</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1880--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1880-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1880-unet.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1880-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1880-rule-f.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1880-rule-o.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#4</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1884--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1884-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1884-unet.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1884-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1884-rule-f.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1884-rule-o.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#5</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1889--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1889-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1889-unet.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1889-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1889-rule-f.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Piano Reduction/1889-rule-o.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container no-gutter small-padding"> </div>
+
+  <div class="container no-gutter no-padding">  
+    <div class="col-lg-12 text-center"><p class="h1"><hr class="primary"></p></div>
+    <p class="h3">Drum Arrangement</p>
+    <p class='text-justify'> Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models?
+    </p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <th style="width: 5%;">No.</th>
+            <th class="text-center" style="width: 19%;">Source Music</th>
+            <th class="text-center" style="width: 19%;">Ours</th>
+            <th class="text-center" style="width: 19%;">Ground truth</th>
+            <th class="text-center" style="width: 19%;">CA v2</th>
+            <th class="text-center" style="width: 19%;">Rule-F</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="vertical-align: middle;"><b>#1</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1876--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1876-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1876-gt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1876-cav2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1876-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#2</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1877--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1877-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1877-gt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1877-cav2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1877-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#3</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1881--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1881-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1881-gt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1881-cav2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1881-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#4</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1882--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1882-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1882-gt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1882-cav2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1882-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+        <tr>
+          <td style="vertical-align: middle;"><b>#5</b></td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1887--song.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1887-ours.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1887-gt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1887-cav2.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+          <td>
+            <audio controls style="width: 100%;">
+              <source src="demo/Drum Arrangement/1887-nopt.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="container no-gutter small-padding"> </div>
+
+  <div class="container no-gutter no-padding">
+    <p class="h1"><hr class="primary"></p>
+    <h5>This site uses <a href="https://volny.github.io/creative-theme-jekyll/" target="_blank" style="color: blue;">the jekyll template</a>.</h5>
+  </div>
+
+</section>
+
+{% include scripts.html %}
+
+</body>
+</html>
