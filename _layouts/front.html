@@ -7,15 +7,15 @@
 <section class="bg-white">
   <div class="container no-gutter no-padding">
     <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Music2Music: Efficient Tokenization, Generative Pre-Training, and Unified Objectives for Multi-Track Music Arrangement</h2> 
+        <h2 class="section-heading">Efficient Tokenization and Unified Fine-Tuning of Music LM for Multitrack Symbolic Music Arrangement</h2> 
         <hr class="primary">
-        <h4 class="section-heading">IJCAI 2025 Submission xxxxx</h4> 
+        <h4 class="section-heading">IJCAI 2025 Submission 8610</h4> 
         <h3></h3>
     </div>
     
     <div class="col-sm-12 small-padding">
         <p class='text-justify'>
-          <b>Abstract</b>: Automatic music arrangement streamlines the creation of musical variants for composer and arrangers, reducing reliance on extensive music expertise. However, existing methods suffer from inefficient tokenization, underutilization of pre-trained music language models (LMs) in data-scarce settings, and suboptimal fidelity and coherence in generated arrangements. This paper introduces a compact, efficient tokenizer for unconditional and conditional music generation, along with a unified seq2seq fine-tuning objective for pre-trained music LMs that balances task-specific needs with coherence constraints. Our approach achieves state-of-the-art results on band arrangement, piano reduction, and drum arrangement, surpassing task-specific models in both objective metrics and perceptual quality. Additionally, we demonstrate that generative pretraining significantly improves bar-to-bar transformations, especially for longer segments. This flexible, scalable framework lays the foundation for advancing music-to-music transformation tasks.
+          <b>Abstract</b>: Automatic music arrangement streamlines the creation of musical variants for composers and arrangers, reducing reliance on extensive music expertise. However, existing methods suffer from inefficient tokenization, underutilization of pre-trained music language models (LMs), and suboptimal fidelity and coherence in generated arrangements. This paper introduces an efficient multitrack music tokenizer for unconditional and conditional symbolic music generation, along with a unified sequence-to-sequence reconstruction fine-tuning objective for pre-trained music LMs that balances task-specific needs with coherence constraints. Our approach achieves state-of-the-art results on band arrangement, piano reduction, and drum arrangement, surpassing task-specific models in both objective metrics and perceptual quality. Additionally, we demonstrate that generative pretraining significantly contributes to the performance across these arrangement tasks, especially when handling long segments with complex alignment.
         </p>
     </div>
   </div>
@@ -24,7 +24,7 @@
   <div class="container no-gutter no-padding">  
     <div class="col-lg-12 text-center"><p class="h1"><hr class="primary"></p></div>
     <p class="h3">Band Arrangement</p>
-    <p class='text-justify'> Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models?
+    <p class='text-justify'> This task involves arranging an existing piece of music for arbitrary combinations of instruments. The model must understand the properties and typical playing styles of each instrument to allocate or generate new notes appropriately. We adopt <b>Transformer-VAE</b> from (<a href="https://openreview.net/forum?id=M75dBr10dZ" target="_blank" style="color: blue;">Zhao, 2024</a>) as the major baseline, the strongest previously reported model for multitrack arrangement without assumptions on track type or number. It combines Transformer-based long-term and inter-track modeling with a VQ-VAE generation module. Additionally, the <b>Rule-Based</b> method distributes notes evenly by pitch across instruments. Results from an ablation variant of our model are also included where the generative pre-training phrase is removed (<b>w/o PT</b>).
     </p>
     <table class="table table-bordered">
       <thead>
@@ -32,9 +32,9 @@
             <th style="width: 12%;">Demo No.</th>
             <th class="text-center" style="width: 17%;">Source Music</th>
             <th class="text-center" style="width: 17%;">Ours</th>
-            <th class="text-center" style="width: 17%;">AccoMontage-3</th>
-            <th class="text-center" style="width: 17%;">No PT</th>
-            <th class="text-center" style="width: 17%;">Rule-based</th>
+            <th class="text-center" style="width: 17%;">Transformer-VAE</th>
+            <th class="text-center" style="width: 17%;">w/o PT</th>
+            <th class="text-center" style="width: 17%;">Rule-Based</th>
         </tr>
       </thead>
       <tbody>
@@ -246,7 +246,7 @@
   <div class="container no-gutter no-padding">  
     <div class="col-lg-12 text-center"><p class="h1"><hr class="primary"></p></div>
     <p class="h3">Piano Reduction</p>
-    <p class='text-justify'> Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models?
+    <p class='text-justify'> This task focuses on simplifying multi-instrumental musical pieces into solo piano arrangements that ensure pianistic playability while preserving the original musical essence, i.e., harmonies and textures. The major baseline is <b>UNet</b> from (<a href="https://ieeexplore.ieee.org/abstract/document/10095462" target="_blank" style="color: blue;">Terao, 2023</a>), the most recent work in this area. Additionally, <b>Rule-F</b> is the flattened multitrack where the piano plays all notes, and <b>Rule-O</b> is the original piano track.
     </p>
     <table class="table table-bordered">
       <thead>
@@ -255,7 +255,7 @@
             <th class="text-center" style="width: 16%;">Source Music</th>
             <th class="text-center" style="width: 16%;">Ours</th>
             <th class="text-center" style="width: 16%;">UNet</th>
-            <th class="text-center" style="width: 16%;">No PT</th>
+            <th class="text-center" style="width: 16%;">w/o PT</th>
             <th class="text-center" style="width: 16%;">Rule-F</th>
             <th class="text-center" style="width: 16%;">Rule-O</th>
         </tr>
@@ -466,7 +466,7 @@
   <div class="container no-gutter no-padding">  
     <div class="col-lg-12 text-center"><p class="h1"><hr class="primary"></p></div>
     <p class="h3">Drum Arrangement</p>
-    <p class='text-justify'> Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models? Placeholder: A short intro to this demo section: What is the task and goal? What are the baseline models?
+    <p class='text-justify'> This task involves creating a drum track for songs that lack one. The model needs to recognize the groove of the music and enhance it using the drum set, and further, handle transitions between musical phrases to drive the music forward and make it more engaging, which consequently requires a better understanding of musical structure. The <b>Composer's Assistant 2</b> (<b>CA v2</b>) from (<a href="https://ismir2024program.ismir.net/poster_60.html" target="_blank" style="color: blue;">Malandro, 2024</a>) was used as the major baseline, which is a strong track infilling model capable of handling multitrack inputs and generating drum outputs.
     </p>
     <table class="table table-bordered">
       <thead>
@@ -474,9 +474,9 @@
             <th style="width: 5%;">No.</th>
             <th class="text-center" style="width: 19%;">Source Music</th>
             <th class="text-center" style="width: 19%;">Ours</th>
-            <th class="text-center" style="width: 19%;">Ground truth</th>
+            <th class="text-center" style="width: 19%;">Ground Truth</th>
             <th class="text-center" style="width: 19%;">CA v2</th>
-            <th class="text-center" style="width: 19%;">Rule-F</th>
+            <th class="text-center" style="width: 19%;">w/o PT</th>
         </tr>
       </thead>
       <tbody>
