@@ -1,5 +1,5 @@
 # Site settings
-title: "IJCAI-23 Submission"
+title: "NeurIPS-25 Submission"
 email: ""
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/

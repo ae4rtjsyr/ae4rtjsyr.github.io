@@ -41,49 +41,49 @@
     stroke-opacity: 1; }
 
     midi-visualizer svg rect.note {
-      fill: #17becf; opacity: 50%;}
+      fill: #17becf; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="0"] {
-      fill: #1f77b4; opacity: 50%;}
+      fill: #1f77b4; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="8"] {
-      fill: #2ca02c; opacity: 50%;}
+      fill: #2ca02c; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="16"] {
-      fill: #ffbb78; opacity: 50%;}
+      fill: #bcbd22; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="24"] {
-      fill: #2ca02c; opacity: 20%;}
+      fill: #e377c2; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="32"] {
-      fill: #9467bd; opacity: 50%;}
+      fill: #9467bd; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="40"] {
-      fill: #8c564b; opacity: 50%;}
+      fill: #8c564b; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="48"] {
-      fill: #ffbb78; opacity: 50%;}
+      fill: #ffbb78; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="56"] {
-      fill: #ff7f0e; opacity: 50%;}
+      fill: #ff7f0e; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="64"] {
-      fill: #d62728; opacity: 50%;}
+      fill: #d62728; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="72"] {
-      fill: #17becf; opacity: 50%;}
+      fill: #d62728; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="80"] {
-      fill: #1b9e77; opacity: 50%;}
+      fill: #1b9e77; opacity: 75%;}
   
     midi-visualizer svg rect.note[data-program="88"] {
       fill: #d62728; }
 
     midi-visualizer svg rect.note[data-program="89"] {
-      fill: #98df8a; opacity: 50%;}
+      fill: #98df8a; opacity: 75%;}
 
     midi-visualizer svg rect.note[data-program="1"] {
-      fill: #d62728; opacity: 50%;}
+      fill: #d62728; opacity: 75%;}
 
   
   
@@ -99,7 +99,7 @@
     }
   
     .tabby-tab {
-      width: 200px;
+      width: 100px;
     }
   
     .tabby-tab label {
@@ -112,7 +112,7 @@
       text-align: center;
       background: rgb(225, 225, 250);
       cursor: pointer;
-      border-radius: 10px 5px 10px 0px;
+      border-radius: 10px 10px 0px 0px;
     }
   
     .tabby-tab label:hover {
@@ -153,15 +153,15 @@
 <section class="bg-white">
   <div class="container no-gutter no-padding">
     <div class="col-lg-12 text-center">
-        <h2 class="section-heading">Unifying Multitrack Music Arrangement via Reconstruction Fine-Tuning and Efficient Tokenization</h2> 
+        <h2 class="section-heading">Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization</h2> 
         <hr class="primary">
-        <h4 class="section-heading">IJCAI 2025 Submission 8610</h4> 
+        <h4 class="section-heading">NeurIPS 2025 Submission 19229</h4> 
         <h3></h3>
     </div>
     
     <div class="col-sm-12 small-padding">
         <p class='text-justify'>
-          <b>Abstract</b>: Automatic music arrangement streamlines the creation of musical variants for composers and arrangers, reducing reliance on extensive music expertise. However, existing methods suffer from inefficient tokenization, underutilization of pre-trained music language models (LMs), and suboptimal fidelity and coherence in generated arrangements. This paper introduces an efficient multitrack music tokenizer for unconditional and conditional symbolic music generation, along with a unified sequence-to-sequence reconstruction fine-tuning objective for pre-trained music LMs that balances task-specific needs with coherence constraints. Our approach achieves state-of-the-art results on band arrangement, piano reduction, and drum arrangement, surpassing task-specific models in both objective metrics and perceptual quality. Additionally, we demonstrate that generative pretraining significantly contributes to the performance across these arrangement tasks, especially when handling long segments with complex alignment.
+          <b>Abstract</b>: We present a unified framework for automatic multitrack music arrangement that enables a single pre-trained symbolic music model to handle diverse arrangement scenarios, including reinterpretation, simplification, and additive generation. At its core is a segment-level reconstruction objective operating on token-level disentangled content and style, allowing for flexible any-to-any instrumentation transformations at inference time. To support track-wise modeling, we introduce REMI-z, a structured tokenization scheme for multitrack symbolic music. By preserving track-wise continuity while reducing sequence length and complexity, it enhances modeling efficiency and effectiveness for both arrangement tasks and unconditional generation. Our method outperforms task-specific state-of-the-art models on representative tasks in different arrangement scenarios&mdash;band arrangement, piano reduction, and drum arrangement, in both objective metrics and perceptual evaluations. Taken together, our framework demonstrates strong generality and suggests broader applicability in symbolic music-to-music transformation.
         </p>
     </div>
   </div>
@@ -803,10 +803,14 @@
 
     <p class='text-justify'></p>
     <p class="h4"><b>Band Arrangement</b></p>
+    <ul>
+      <li>Target Arrangement: <em style="color: #d62728;">Soprano Sax</em>, <em style="color: #1f77b4;">Acoustic Piano</em>, <em style="color: #e377c2;">Acoustic Guitar</em>, <em style="color: #9467bd;">Electric Bass</em>, <em style="color: #8c564b;">Violin</em>, <em style="color: #17becf;">Strings</em>, and <em style="color: #ff7f0e;">Brass Section</em>.</li>
+      <li>Source Arrangement: <em style="color: #d62728;">Piccolo</em>, <em style="color: #1f77b4;">Acoustic Piano</em>, <em style="color: #2ca02c;">Electric Piano</em>, <em style="color: #17becf;">Strings</em>, and <em style="color: #ff7f0e;">Drumset</em>.</li>
+    </ul>
     <div class="tabs">
       <div class="tabby-tab">
         <input type="radio" id="tab-1-1" name="tab-1" checked>
-        <label for="tab-1-1">Band Arrangement</label>
+        <label for="tab-1-1">Result</label>
         <div class="tabby-content">
           <midi-visualizer 
             src="demo/Showcase/band_caihong_output.midi"
@@ -826,7 +830,7 @@
       </div>
       <div class="tabby-tab">
         <input type="radio" id="tab-1-2" name="tab-1">
-        <label for="tab-1-2">Source Music</label>
+        <label for="tab-1-2">Source</label>
         <div class="tabby-content">
           <midi-visualizer 
             src="demo/Showcase/band_caihong_input.midi"
@@ -849,10 +853,15 @@
 
     <p class='text-justify'></p>
     <p class="h4"><b>Piano Reduction</b></p>
+    <ul>
+      <li>Target Arrangement: <em style="color: #1f77b4;">Acoustic Piano</em>.</li>
+      <li>Source Arrangement: <em style="color: #d62728;">Dizi</em>, <em style="color: #17becf;">Erhu</em>, <em style="color: #bcbd22;">Guzheng</em>, <em style="color: #1f77b4;">Strings</em>, <em style="color: #9467bd;">Contrabass</em>, <em style="color: #2ca02c;">Glockenspiel</em>, <em style="color: #e377c2;">Piano</em>, and <em style="color: #98df8a;">Sound Effects</em>.</li>
+    </ul>
+    
     <div class="tabs">
       <div class="tabby-tab">
         <input type="radio" id="tab-2-1" name="tab-2" checked>
-        <label for="tab-2-1">Piano Reduction</label>
+        <label for="tab-2-1">Result</label>
         <div class="tabby-content">
           <midi-visualizer 
             src="demo/Showcase/piano_mengdeguangdian_output.midi"
@@ -872,7 +881,7 @@
       </div>
       <div class="tabby-tab">
         <input type="radio" id="tab-2-2" name="tab-2">
-        <label for="tab-2-2">Source Music</label>
+        <label for="tab-2-2">Source</label>
         <div class="tabby-content">
           <midi-visualizer 
             src="demo/Showcase/piano_mengdeguangdian_input.mid"
@@ -895,10 +904,14 @@
 
     <p class='text-justify'></p>
     <p class="h4"><b>Drum Arrangement</b></p>
+    <ul>
+      <li>Target Arrangement: <em style="color: #d62728;">Drumset</em> and <em style="color: #1f77b4;">Acoustic Piano</em>.</li>
+      <li>Source Arrangement: <em style="color: #1f77b4;">Acoustic Piano</em>.</li>
+    </ul>
     <div class="tabs">
       <div class="tabby-tab">
         <input type="radio" id="tab-3-1" name="tab-3" checked>
-        <label for="tab-3-1">Drum Arrangement</label>
+        <label for="tab-3-1">Result</label>
         <div class="tabby-content">
           <midi-visualizer 
             src="demo/Showcase/drum_butterfly_output_mixed.midi"
@@ -938,7 +951,7 @@
       </div>
       <div class="tabby-tab">
         <input type="radio" id="tab-3-3" name="tab-3">
-        <label for="tab-3-3">Source Music</label>
+        <label for="tab-3-3">Source</label>
         <div class="tabby-content">
           <midi-visualizer 
             src="demo/Showcase/drum_butterfly_input.midi"
@@ -982,9 +995,9 @@
   for (i_vis = 0; i_vis < visualizers.length; i_vis++) {
     visualizers[i_vis].config = {
     noteHeight: 2.5,
-    pixelsPerTimeStep: 15,
-    minPitch: 28,
-    maxPitch: 92,
+    pixelsPerTimeStep: 20,
+    minPitch: 32,
+    maxPitch: 96,
     };
   }
   
